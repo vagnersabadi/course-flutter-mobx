@@ -1,0 +1,4 @@
+#Mon Jan 06 23:28:43 BRST 2020
+base.0=C\:\\Users\\sabadi\\Documents\\Projetos\\_flutter\\course_flutter_mobx\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
