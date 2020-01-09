@@ -29,6 +29,7 @@ dependencies:
 dev_dependencies:
   mobx_codegen:
   build_runner:
+  provider:
   flutter_test:
     sdk: flutter
 
