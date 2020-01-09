@@ -13,7 +13,7 @@ abstract class _ControllerBase with Store {
   }
 
   String validateName() {
-    if (client.s == null || client.name.isEmpty) {
+    if (client.name == null || client.name.isEmpty) {
       return 'Campo obrigatório';
     } else if (client.name.length < 3) {
       return 'Necesário ser maior que 3 caracteres';
@@ -31,7 +31,7 @@ abstract class _ControllerBase with Store {
   }
 
   String validateCpf() {
-    if (client.cpf == null || client.cpf.isEmpty) {
+    if (client.cpf == null || client.name.isEmpty) {
       return 'Campo obrigatório';
     } else if (client.cpf.length < 3) {
       return 'Necesário ser maior que 3 caracteres';

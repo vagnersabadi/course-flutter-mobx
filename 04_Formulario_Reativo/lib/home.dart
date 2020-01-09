@@ -1,8 +1,9 @@
 import 'package:aula_04/body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:provider/provider.dart';
 import 'controller.dart';
+import 'package:get_it/get_it.dart';
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<Controller>(context);
+    final controller = GetIt.I.get<Controller>();
 
     return Scaffold(
         appBar: AppBar(

@@ -1,27 +1,28 @@
 import 'package:aula_04/home.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get_it/get_it.dart';
 
 import 'controller.dart';
 
-void main() => runApp(MyApp());
+
+void main(){
+
+  GetIt getIt = GetIt.I;
+  getIt.registerSingleton<Controller>(Controller())
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          Provider<Controller>(
-            create: (_) => Controller(),
-            dispose: (_, controller) => controller.dispose(),
-          )
-        ],
-        child: MaterialApp(
+    return MaterialApp(
           title: 'Flutter Mobx',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
           home: MyHomePage(),
-        ));
+        );
   }
 }
+''
