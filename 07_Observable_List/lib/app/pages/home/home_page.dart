@@ -52,31 +52,40 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: TextField(
+          onChanged: controller.setFilter,
           decoration: InputDecoration(hintText: 'Pesquisar...'),
         ),
         actions: <Widget>[
           IconButton(
-            icon:Observer(builder: (_){
-              return  Text('${controller.totalCheck}');
-            },),
+            icon: Observer(
+              builder: (_) {
+                return Text('${controller.totalCheck}');
+              },
+            ),
             onPressed: () {},
           )
         ],
       ),
       body: Observer(
         builder: (_) {
-          return ListView.builder(
-            itemCount: controller.listItems.length,
-            itemBuilder: (_, index) {
-              var item = controller.listItems[index];
-              return ItemWidget(
-                item: item,
-                removeClicked: () {
-                  controller.removeItem(item);
-                },
-              );
-            },
-          );
+          if (controller.output.data == null) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return ListView.builder(
+              itemCount: controller.output.data.length,
+              itemBuilder: (_, index) {
+                var item = controller.output.data[index];
+                return ItemWidget(
+                  item: item,
+                  removeClicked: () {
+                    controller.removeItem(item);
+                  },
+                );
+              },
+            );
+          }
         },
       ),
       floatingActionButton: FloatingActionButton(

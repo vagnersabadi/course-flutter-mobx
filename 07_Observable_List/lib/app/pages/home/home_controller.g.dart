@@ -15,23 +15,6 @@ mixin _$HomeController on _HomeControllerBase, Store {
   int get totalCheck =>
       (_$totalCheckComputed ??= Computed<int>(() => super.totalCheck)).value;
 
-  final _$listItemsAtom = Atom(name: '_HomeControllerBase.listItems');
-
-  @override
-  ObservableList<ItemModel> get listItems {
-    _$listItemsAtom.context.enforceReadPolicy(_$listItemsAtom);
-    _$listItemsAtom.reportObserved();
-    return super.listItems;
-  }
-
-  @override
-  set listItems(ObservableList<ItemModel> value) {
-    _$listItemsAtom.context.conditionallyRunInAction(() {
-      super.listItems = value;
-      _$listItemsAtom.reportChanged();
-    }, _$listItemsAtom, name: '${_$listItemsAtom.name}_set');
-  }
-
   final _$_HomeControllerBaseActionController =
       ActionController(name: '_HomeControllerBase');
 
